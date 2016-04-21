@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmSOAPInput.msgnode="ComIbmSOAPInput.msgnode" xmlns:ComIbmSOAPReply.msgnode="ComIbmSOAPReply.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_soapSynAsyn_serveur.subflow="gen/soapSynAsyn_serveur.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="serveur.msgflow"
+    nsPrefix="serveur.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="serveur" bundleName="serveur" pluginId="SOAP"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/SOAP/icons/full/obj16/serveur.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/SOAP/icons/full/obj30/serveur.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmSOAPInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="150,119" wsdlFileName="soapSynAsyn.wsdl" selectedPortType="soapSynAsyn" selectedBinding="soapSynAsynSOAP" selectedPort="soapSynAsynSOAP" targetNamespace="http://www.example.org/soapSynAsyn/" useHTTPTransport="true" urlSelector="/soapServer" allowQueryWSDL="true" usingWsAddressing="true">
+        <translation xmi:type="utility:ConstantString" string="Entrée SOAP"/>
+      </nodes>
+      <nodes xmi:type="gen_soapSynAsyn_serveur.subflow:FCMComposite_1" xmi:id="FCMComposite_1_2" location="303,115">
+        <translation xmi:type="utility:ConstantString" string="soapSynAsyn"/>
+        <shortDescription xmi:type="utility:ConstantString" string="Extrait le corps du message SOAP"/>
+        <longDescription xmi:type="utility:ConstantString" string="Ce flux secondaire extrait le corps du message SOAP, à raison d'un noeud de sortie par opération. Cela est généré par une action glisser-déposer d'un fichier WSDL."/>
+      </nodes>
+      <nodes xmi:type="ComIbmSOAPReply.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_3" location="669,120">
+        <translation xmi:type="utility:ConstantString" string="Réponse SOAP"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="508,119" computeExpression="esql://routine/#serveur_Calcul.Main" computeMode="destinationAndMessage">
+        <translation xmi:type="utility:ConstantString" string="Serveur"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_3" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_2" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_3" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.request" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard/>
+  </eClassifiers>
+</ecore:EPackage>

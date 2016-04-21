@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ComIbmCompute.msgnode="ComIbmCompute.msgnode" xmlns:ComIbmFileOutput.msgnode="ComIbmFileOutput.msgnode" xmlns:ComIbmMQInput.msgnode="ComIbmMQInput.msgnode" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:gen_NewOperation_soapSynAsyn_client.subflow="gen/NewOperation_soapSynAsyn_client.subflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility" nsURI="client.msgflow"
+    nsPrefix="client.msgflow">
+  <eClassifiers xmi:type="eflow:FCMComposite" name="FCMComposite_1">
+    <eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>
+    <translation xmi:type="utility:TranslatableString" key="client" bundleName="client" pluginId="SOAP"/>
+    <colorGraphic16 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/SOAP/icons/full/obj16/client.gif"/>
+    <colorGraphic32 xmi:type="utility:GIFFileGraphic" resourceName="platform:/plugin/SOAP/icons/full/obj30/client.gif"/>
+    <composition>
+      <nodes xmi:type="ComIbmMQInput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_1" location="65,86" queueName="QSYN" messageDomainProperty="XMLNSC">
+        <translation xmi:type="utility:ConstantString" string="Entrée MQ"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_2" location="229,86" computeExpression="esql://routine/#client_Request.Main" computeMode="destinationAndMessage">
+        <translation xmi:type="utility:ConstantString" string="Request"/>
+      </nodes>
+      <nodes xmi:type="ComIbmCompute.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_4" location="580,95" computeExpression="esql://routine/#client_Response.Main" computeMode="destinationAndMessage">
+        <translation xmi:type="utility:ConstantString" string="Response"/>
+      </nodes>
+      <nodes xmi:type="gen_NewOperation_soapSynAsyn_client.subflow:FCMComposite_1" xmi:id="FCMComposite_1_5" location="319,87">
+        <translation xmi:type="utility:ConstantString" string="NewOperation_soapSynAsyn"/>
+        <shortDescription xmi:type="utility:ConstantString" string="Appelle une opération WSDL et extrait la réponse d'un message SOAP."/>
+        <longDescription xmi:type="utility:ConstantString" string="Ce flux secondaire appelle l'opération WSDL et extrait le corps du message de réponse."/>
+      </nodes>
+      <nodes xmi:type="ComIbmFileOutput.msgnode:FCMComposite_1" xmi:id="FCMComposite_1_7" location="702,100" outputDirectory="C:\Users\MazenKhoder\Desktop\testSOAP" outputFilename="out.xml">
+        <translation xmi:type="utility:ConstantString" string="Sortie de fichier"/>
+      </nodes>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_1" targetNode="FCMComposite_1_2" sourceNode="FCMComposite_1_1" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_4" targetNode="FCMComposite_1_5" sourceNode="FCMComposite_1_2" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_5" targetNode="FCMComposite_1_4" sourceNode="FCMComposite_1_5" sourceTerminalName="OutTerminal.response" targetTerminalName="InTerminal.in"/>
+      <connections xmi:type="eflow:FCMConnection" xmi:id="FCMConnection_6" targetNode="FCMComposite_1_7" sourceNode="FCMComposite_1_4" sourceTerminalName="OutTerminal.out" targetTerminalName="InTerminal.in"/>
+    </composition>
+    <propertyOrganizer/>
+    <stickyBoard/>
+  </eClassifiers>
+</ecore:EPackage>

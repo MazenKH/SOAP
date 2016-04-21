@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><wsdl:definitions name="soapSynAsyn" targetNamespace="http://www.example.org/soapSynAsyn/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/soapSynAsyn/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation>
+    <wsdl:appinfo source="WMQI_APPINFO">
+      <MRWSDLAppInfo imported="true">
+        <generatedXSD location="soapSynAsyn_InlineSchema1.xsd"/>
+        <binding hasEncoding="false" imported="true" name="soapSynAsynSOAP" originalBindingStyle="document"/>
+      </MRWSDLAppInfo>
+    </wsdl:appinfo>
+  </wsdl:documentation>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/soapSynAsyn/">
+<xsd:include schemaLocation="soapSynAsyn_InlineSchema1.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:types>
+  	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  		<xsd:import namespace="http://www.example.org/soapSynAsyn/"
+  			schemaLocation="soapSynAsyn_InlineSchema1.xsd">
+  		</xsd:import></xsd:schema></wsdl:types>
+  <wsdl:message name="NewOperationRequest">
+    <wsdl:part element="tns:request" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="NewOperationResponse">
+    <wsdl:part element="tns:response" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="soapSynAsyn">
+    <wsdl:operation name="NewOperation">
+      <wsdl:input message="tns:NewOperationRequest"/>
+      <wsdl:output message="tns:NewOperationResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="soapSynAsynSOAP" type="tns:soapSynAsyn">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="NewOperation">
+  		<soap:operation
+  			soapAction="http://www.example.org/soapSynAsyn/NewOperation" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="soapSynAsyn">
+    <wsdl:port binding="tns:soapSynAsynSOAP" name="soapSynAsynSOAP">
+      <soap:address location="http://127.0.0.1:7800/soapServer"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

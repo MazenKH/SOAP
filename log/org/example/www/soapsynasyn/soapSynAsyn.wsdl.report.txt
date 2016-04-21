@@ -1,0 +1,22 @@
+
+
+Importation du fichier : C:\Users\MazenKhoder\IBM\IntegrationToolkit90\workspace\SOAP\soapSynAsyn.wsdl
+
+Copie du WSDL source soapSynAsyn.wsdl dans soapSynAsyn.wsdl.
+L'importation WSDL va s'effectuer avec la liaison soapSynAsynSOAP.
+Création du document de schéma wsdl pour file:///C:/Users/MazenKhoder/IBM/IntegrationToolkit90/workspace/SOAP/soapSynAsyn.wsdl.
+Parsing wsdl binding {http://www.example.org/soapSynAsyn/}soapSynAsynSOAP.
+Parsing wsdl binding input NewOperation.
+Parsing wsdl binding output NewOperation.
+Processing doc style for operation NewOperation.
+Populating WSDL schema soapSynAsyn.xsd.
+Création du fichier soapSynAsyn.xsd dans l'espace de travail.
+Création du fichier soapSynAsyn_InlineSchema1.xsd dans l'espace de travail.
+
+Temps écoulé durant le traitement de ce fichier de définitions de messages : 0.172 seconde(s)
+Nombre d'avertissements pour ce fichier de définitions de messages : 0
+
+
+Nombre de fichiers traités : 1
+
+
